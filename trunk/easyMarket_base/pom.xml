@@ -607,17 +607,27 @@
 				</reportSets>
 			</plugin>
 			<!-- PMD manven plugin -->
-			<!--
-				<plugin> <groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-pmd-plugin</artifactId> <version>2.4</version>
-				<configuration> <rulesets> <ruleset>./Ruleset.xml</ruleset>
-				</rulesets> <linkXref>true</linkXref>
-				<sourceEncoding>${encoding}</sourceEncoding>
-				<minimumTokens>100</minimumTokens>
-				<targetJdk>${compileSource}</targetJdk> </configuration>
-				<reportSets> <reportSet> <reports> <report>pmd</report> </reports>
-				</reportSet> </reportSets> </plugin>
-			-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId> 
+				<version>2.4</version>
+				<configuration> 
+					<rulesets> 
+						<ruleset>./script/EgovInspectionRules_eng.xml</ruleset>
+					</rulesets> 
+					<linkXref>true</linkXref>
+				  <sourceEncoding>${encoding}</sourceEncoding>
+				  <minimumTokens>100</minimumTokens>
+				  <targetJdk>${compileSource}</targetJdk> 
+				</configuration>
+				<reportSets> 
+					<reportSet> 
+						<reports> 
+							<report>pmd</report> 
+						</reports>
+					</reportSet> 
+				</reportSets> 
+			</plugin>
 			<!-- Generating JavaDoc Report -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
