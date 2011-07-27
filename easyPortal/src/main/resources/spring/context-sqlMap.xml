@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd			
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+    
+	<bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true" />
+
+	<!-- SqlMap setup for iBATIS Database Layer -->
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		
+		<!-- TODO [Step 4-1] sqlMapClient 설정 확인 및 configLocations 설정 -->
+		<!-- iBatis(Query servie로 sql과 java code를 분리하여 관리됨) 연결을 위해서는 sqlMapClient 설정이 필요함 -->
+		<!-- iBatis는 SqlMapConfig.xml과 SqlMap.xml으로 구성됨 (파일명은 임의로 지정 가능) -->
+		<!-- sqlMapClient의 "configLocations" property에 SqlMapConfig.xml을 지정함 -->
+		<!-- 본 실습에서는 "/sqlmap/config/*.xml"을 configLocations 속성(List 유형)지정함  -->
+		<!--  Ex : 
+		<property name="configLocations">
+			<list>
+				<value>classpath:/sqlmap/config/*.xml</value>
+			</list>
+		</property>
+		-->
+		<property name="configLocations">
+			<list>
+				<value>classpath:/sqlmap/config/*.xml</value>
+			</list>
+		</property>
+		
+		<property name="dataSource" ref="dataSource"/>
+		<property name="lobHandler" ref="lobHandler"/>
+	</bean>
+			
+</beans>	

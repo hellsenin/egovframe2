@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+
+	<!-- TODO [Step 4-2] SqlMapConfig 설정  -->
+	<!-- SqlMapConfig.xml 파일은 실제 query를 가지고 있는 SqlMap.xml 파일의 resource 속성으로 지정  -->
+	<!-- 본 실습에서는 "sqlmap/sql/guide/Notification_SQL_Hsqldb.xml"를 resource로 지정 -->
+	<!-- Ex : <sqlMap resource="sqlmap/sql/guide/Notification_SQL_Hsqldb.xml"/> -->
+	<sqlMap resource="sqlmap/sql/guide/Notification_SQL_Hsqldb.xml"/>
+
+</sqlMapConfig>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean id="notificationDao" class="egovframework.gettingstart.guide.service.impl.NotificationDAO" />
+	
+	<!--
+	TODO [Step 1-4] XML 설정 및 서비스 정의 
+	notificationService bean을 정의하고
+	property를 통해 dao bean(notificationDao)을 지정 
+	Ex:
+	<bean id="notificationService" class="egovframework.gettingstart.guide.service.impl.NotificationServiceImpl">
+		<property name="dao" ref="notificationDao" />
+	</bean>
+	-->
+	<bean id="notificationService" class="egovframework.gettingstart.guide.service.impl.NotificationServiceImpl">
+		<property name="dao" ref="notificationDao" />
+	</bean>
+
+</beans>
