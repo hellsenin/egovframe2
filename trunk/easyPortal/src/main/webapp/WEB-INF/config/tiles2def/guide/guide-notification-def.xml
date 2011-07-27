@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	
+	<definition name="guide/notificationList" extends="template">
+		<put-attribute name="title" value="정보알림이 목록조회" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/guide/notificationList.jsp" />
+	</definition>
+	
+	<definition name="guide/notificationDetail" extends="template">
+		<put-attribute name="title" value="정보알림이 상세조회" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/guide/notificationDetail.jsp" />
+	</definition>
+	
+	<definition name="guide/notificationRegist" extends="template">
+		<put-attribute name="title" value="정보알림이 등록" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/guide/notificationRegist.jsp" />
+	</definition>
+	
+	<definition name="guide/notificationUpdt" extends="template">
+		<put-attribute name="title" value="정보알림이 수정" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/guide/notificationUpdt.jsp" />
+	</definition>
+	
+	<definition name="guide/notificationData" template="/WEB-INF/jsp/guide/notificationData.jsp">
+	</definition>
+	
+
+</tiles-definitions>

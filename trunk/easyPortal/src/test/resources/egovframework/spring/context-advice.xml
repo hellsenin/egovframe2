@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<!-- TODO [Step 5-2] Advice bean 설정  -->
+	<!-- Advice 설정 (Crosscutting concerns) -->
+	<!-- adviceUsingXML이란 id로 egovframework.gettingstart.aop.AdviceUsingXML를 정의 -->
+	<!-- Ex : <bean id="adviceUsingXML" class="egovframework.gettingstart.aop.AdviceUsingXML" /> -->
+	<bean id="adviceUsingXML" class="egovframework.gettingstart.aop.AdviceUsingXML" />
+
+	<!-- TODO [Step 3-3] AOP 설정  확인 -->
+	<!-- AOP 설정은 pointcut(advice가 동작할 특정 지정에 대한 정의문) 정의와 advice("adviceUsingXML")을 연결함 -->
+	<!-- 이 연결이 JoinPoint로서 5개지 유형이 존재함 (before, after-returing, after-throwing, after, around) -->
+	<aop:config>
+		<aop:pointcut id="targetMethod"
+			expression="execution(* egovframework..impl.*Impl.*(..))" />
+		<aop:aspect ref="adviceUsingXML">
+			<aop:before pointcut-ref="targetMethod" method="beforeTargetMethod" />
+			<aop:after-returning pointcut-ref="targetMethod"
+				method="afterReturningTargetMethod" returning="retVal" />
+			<aop:after-throwing pointcut-ref="targetMethod"
+				method="afterThrowingTargetMethod" throwing="exception" />
+			<aop:after pointcut-ref="targetMethod" method="afterTargetMethod" />
+			<aop:around pointcut-ref="targetMethod" method="aroundTargetMethod" />
+		</aop:aspect>
+	</aop:config>
+
+</beans>
