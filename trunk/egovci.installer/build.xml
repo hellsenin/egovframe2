@@ -1,0 +1,37 @@
+<project name="ciserv" default="all">
+	
+    
+	<property file="build.properties" />
+    
+
+	<property name="user.name" value="egovframe ci server" />
+		
+	<property name="src.dir" value="src/main/java" />
+	<property name="classes.dir" value="target/classes" />
+	<property name="commons-io.dir" value="${repository.dir}/commons-io/commons-io/2.0.1" />
+	<property name="commons-lang.dir" value="${repository.dir}/commons-lang/commons-lang/2.6" />
+	
+	<target name="all" depends="clean, pack" />
+	
+	<target name="clean">
+		<mkdir  dir="${bin.dir}" />
+	</target>
+
+	<target name="pack">
+		<antcall target="pack-install" />
+	</target>
+	
+	<target name="pack-install">
+		<jar destfile="${bin.dir}/install.jar">
+			<fileset dir="${classes.dir}" />
+			<fileset dir="${src.dir}" />	
+			<zipgroupfileset dir="${commons-io.dir}" includes="commons-*.jar"/>
+			<zipgroupfileset dir="${commons-lang.dir}" includes="commons-*.jar"/>
+			<manifest>
+				<attribute name="Main-Class" value="ciserv.Installer" />
+				<attribute name="Version"    value="${version}" />
+			</manifest>
+		</jar>
+	</target>
+		
+</project>
