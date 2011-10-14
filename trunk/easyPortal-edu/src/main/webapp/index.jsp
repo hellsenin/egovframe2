@@ -25,7 +25,7 @@
     <div id="body">
 		<div id="content">
 			<h2>Introduction</h2>
-			<p><a href="http://www.spyka.net" title="spyka webmaster">The eGovernment Standard Framework</a> is an infrastructure environment for implementing application SWs and provides basic functions in the application SW runtime.
+			<p><a href="http://www.egovframe.go.kr/" title="egovframe">The eGovernment Standard Framework</a> is an infrastructure environment for implementing application SWs and provides basic functions in the application SW runtime.
 			   The eGovernment Standard Framework has an <strong>objective</strong> to increase the quality of eGovernment services, the efficiency of IT investment and the standardization and the reusability of application SWs through establishing and applying the development framework standard.</p>
             
             <p>This site has been tested in:</p>
